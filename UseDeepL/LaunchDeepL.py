@@ -39,14 +39,15 @@ element = driver.find_element_by_css_selector(before_textarea)
 element.send_keys('Hello world!')
 
 #訳文が表示されるまで待期
-'''
 element = WebDriverWait(driver, 30).until(
 	EC.element_to_be_clickable((By.CSS_SELECTOR, after_textarea))
 )
-'''
+
 time.sleep(10)
 
 #クリップボードにコピーする
 element = driver.find_element_by_css_selector(CopyButton)
 driver.execute_script('arguments[0].click();',element)
 
+#chromeを閉じる
+driver.close()
