@@ -28,26 +28,27 @@ before_textarea = '#dl_translator > div.lmt__sides_container > div.lmt__side_con
 after_textarea = '#dl_translator > div.lmt__sides_container > div.lmt__side_container.lmt__side_container--target > div.lmt__textarea_container > div.lmt__inner_textarea_container > textarea'
 CopyButton = '#dl_translator > div.lmt__sides_container > div.lmt__side_container.lmt__side_container--target > div.lmt__textarea_container > div.lmt__target_toolbar.lmt__target_toolbar--visible > div.lmt__target_toolbar__copy > button'
 
-#chromeを起動
-driver = webdriver.Chrome(executable_path=DRIVER_PATH, chrome_options=options)
+def LaunchDeepL(input_string):
+	#chromeを起動
+	driver = webdriver.Chrome(executable_path=DRIVER_PATH, chrome_options=options)
 
-#DeepLのページへアクセス
-driver.get(URL)
+	#DeepLのページへアクセス
+	driver.get(URL)
 
-#フォームに英文を入力する
-element = driver.find_element_by_css_selector(before_textarea)
-element.send_keys('Hello world!')
+	#フォームに英文を入力する
+	element = driver.find_element_by_css_selector(before_textarea)
+	element.send_keys(input_string)
 
-#訳文が表示されるまで待期
-element = WebDriverWait(driver, 30).until(
-	EC.element_to_be_clickable((By.CSS_SELECTOR, after_textarea))
-)
+	#訳文が表示されるまで待期
+	element = WebDriverWait(driver, 30).until(
+		EC.element_to_be_clickable((By.CSS_SELECTOR, after_textarea))
+	)
 
-time.sleep(10)
+	time.sleep(10)
 
-#クリップボードにコピーする
-element = driver.find_element_by_css_selector(CopyButton)
-driver.execute_script('arguments[0].click();',element)
+	#クリップボードにコピーする
+	element = driver.find_element_by_css_selector(CopyButton)
+	driver.execute_script('arguments[0].click();',element)
 
-#chromeを閉じる
-driver.close()
+	#chromeを閉じる
+	driver.close()
