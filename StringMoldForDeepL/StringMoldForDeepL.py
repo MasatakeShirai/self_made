@@ -2,8 +2,11 @@ import os
 os.chdir('StringMoldForDeepL')
 
 file = open('before.txt', 'r')
-print(file.read())
-'''
-input_string = input('input:')
-print(input_string)
-'''
+string = file.read()
+file.close()
+
+print(string)
+
+file = open('after.txt', 'w')
+file.write(string)
+file.close()
