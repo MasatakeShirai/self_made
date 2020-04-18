@@ -1,5 +1,5 @@
 def StringMoldForDeepL(string):    
-    mold_string = string.replace('\n',' ').replace('. ','.\n').replace('','fi')
+    mold_string = string.replace('\n',' ').replace('. ','.\n').replace('','fi').replace('','fl')
     return mold_string
 
 import os
