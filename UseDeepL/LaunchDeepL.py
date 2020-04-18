@@ -30,9 +30,6 @@ after_textarea = '#dl_translator > div.lmt__sides_container > div.lmt__side_cont
 CopyButton = '#dl_translator > div.lmt__sides_container > div.lmt__side_container.lmt__side_container--target > div.lmt__textarea_container > div.lmt__target_toolbar.lmt__target_toolbar--visible > div.lmt__target_toolbar__copy > button'
 
 def LaunchDeepL(input_string):
-    #キャッシュを残さない
-	sys.dont_write_bytecode = True
-
 	#chromeを起動
 	driver = webdriver.Chrome(executable_path=DRIVER_PATH, chrome_options=options)
 
