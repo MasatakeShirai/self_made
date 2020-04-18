@@ -1,9 +1,15 @@
-def StringMoldForDeepL(string):    
+import os
+import sys
+
+def StringMoldForDeepL(string):
+    #キャッシュを残さない
+    sys.dont_write_bytecode = True
+    #文字列を加工する    
     mold_string = string.replace('\n',' ').replace('. ','.\n').replace('','fi').replace('','fl')
+ 
     return mold_string
 
 if __name__ == "__main__":
-    import os
     os.chdir('UseDeepL')
 
     file = open('before.txt', 'r')
