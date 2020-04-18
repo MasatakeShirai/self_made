@@ -5,8 +5,8 @@ file = open('before.txt', 'r')
 string = file.read()
 file.close()
 
-print(string)
+mold_string = string.replace('\n','').replace('.','.\n')
 
 file = open('after.txt', 'w')
-file.write(string)
+file.write(mold_string)
 file.close()
