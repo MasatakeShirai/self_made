@@ -9,7 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 import os
 import time
-import sys 
+
 
 #あらゆる環境でSeleniumが動作できるように設定
 options = Options()

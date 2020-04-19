@@ -1,8 +1,8 @@
 import os
-import sys
+
 
 def StringMoldForDeepL(string):
-    #文字列を加工する    
+    #文字列を整形する    
     mold_string = string.replace('\n',' ').replace('. ','.\n').replace('','fi').replace('','fl')
  
     return mold_string
