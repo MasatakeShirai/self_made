@@ -3,7 +3,7 @@ import sys
 sys.dont_write_bytecode = True
 
 from LaunchDeepL import LaunchDeepL
-from StringMoldForDeepL import StringMoldForDeepL
+from StringMold import StringMoldForDeepL
 import os
 
 os.chdir('UseDeepL')
