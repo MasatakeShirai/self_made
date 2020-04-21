@@ -7,7 +7,7 @@ def StringMoldForDeepL(string):
     return mold_string
 
 def StringMoldForPaste(string):
-    mold_string = string.replace('\n','').replace('|','\n')
+    mold_string = string.replace('\r\n','').replace('|','\n')
     return mold_string
 
 if __name__ == "__main__":

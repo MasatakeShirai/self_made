@@ -16,14 +16,9 @@ file.close()
 
 Mold_String = StringMoldForDeepL(string)
 LaunchDeepL(Mold_String)
-
-file = open('after.txt', 'w', encoding='utf-8')
-file.write(pyperclip.paste())
-file.close()
-
-file = open('after.txt', 'r', encoding='utf-8')
-s = file.read()
-file.close()
-
-translate_string = StringMoldForPaste(s)
+translate_string = StringMoldForPaste(pyperclip.paste())
 pyperclip.copy(translate_string)
+
+file = open('after.txt','w',encoding='utf-8')
+file.write(translate_string)
+file.close()
