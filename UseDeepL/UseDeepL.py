@@ -7,6 +7,11 @@ from StringMold import StringMoldForDeepL, StringMoldForPaste
 import pyperclip
 
 import os
+import getopt
+import sys
+
+#スクリプト名以外の引数を取得
+argv =sys.argv[1:]
 
 os.chdir('UseDeepL')
 
