@@ -12,6 +12,11 @@ import sys
 
 #スクリプト名以外の引数を取得
 argv =sys.argv[1:]
+options, arguments = getopt.getopt(argv, "h" ,"help")
+
+if ('-h', '') or ('--help','') in options:
+    print('help')
+    sys.exit()
 
 os.chdir('UseDeepL')
 
