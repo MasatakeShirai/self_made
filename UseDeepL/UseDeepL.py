@@ -15,7 +15,8 @@ argv =sys.argv[1:]
 options, arguments = getopt.getopt(argv, "h" ,"help")
 
 if ('-h', '') or ('--help','') in options:
-    print('help')
+    print('before.txtに英文を保存してこのスクリプトを実行すると，DeepLのサイトをスクレイピングして翻訳をクリップボードにコピーします．')
+    print('英文に|を挿入すると，訳文のその部分を改行できます．\r\n')
     sys.exit()
 
 os.chdir('UseDeepL')
