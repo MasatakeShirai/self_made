@@ -12,11 +12,24 @@ import sys
 
 #スクリプト名以外の引数を取得
 argv =sys.argv[1:]
-options, arguments = getopt.getopt(argv, "h" ,"help")
+options, arguments = getopt.getopt(argv, "hg", ["help", "generate"])
 
-if ('-h', '') or ('--help','') in options:
+#option_dictはオプションによる設定のまとめ
+option_dict = {'help':False, 'generate':[False,None]}
+
+#引数を読んで，option_dictのフラグを立てる
+for name,value in options:
+    if name in ('-h','--help'):
+        option_dict['help'] = True
+    if name in ('-g','--generate'):
+        option_dict['generate'][0] = True
+        if value is not None:
+            option_dict['generate'][1] = name
+
+if option_dict['help']:
     print('before.txtに英文を保存してこのスクリプトを実行すると，DeepLのサイトをスクレイピングして翻訳をクリップボードにコピーします．')
     print('英文に|を挿入すると，訳文のその部分を改行できます．\r\n')
+    print('-g, --generate')
     sys.exit()
 
 os.chdir('UseDeepL')
@@ -30,6 +43,8 @@ LaunchDeepL(Mold_String)
 translate_string = StringMoldForPaste(pyperclip.paste())
 pyperclip.copy(translate_string)
 
-file = open('after.txt','w',encoding='utf-8')
-file.write(translate_string)
-file.close()
+#結果をtxtファイルに出力する
+if option_dict['generate'][0]:
+    file = open('after.txt','w',encoding='utf-8')
+    file.write(translate_string)
+    file.close()
