@@ -2,5 +2,6 @@
 .vs/slnx.sqlite
 .vs/VSWorkspaceState.json
 .vs/self_made/v16/.suo
+.UseDeepL/.vscode/settings.json
 Test.py
 Test.txt
