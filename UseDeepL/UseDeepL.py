@@ -9,6 +9,7 @@ import pyperclip
 import os
 import getopt
 import sys
+import re
 
 #スクリプト名以外の引数を取得
 argv =sys.argv[1:]
@@ -23,9 +24,13 @@ for name,value in options:
         option_dict['help'] = True
     if name in ('-g','--generate'):
         option_dict['generate'][0] = True
-        if arguments :
-            option_dict['generate'][1] = arguments[0]
-
+        text_pattern = re.compile('[a-zA-Z0-9]*.txt')
+        for arg in arguments:
+            if text_pattern.match(arg):
+                option_dict['generate'][1] = arg
+                break            
+            
+#ヘルプを表示する
 if option_dict['help']:
     print('before.txtに英文を保存してこのスクリプトを実行すると，DeepLのサイトをスクレイピングして翻訳をクリップボードにコピーします．')
     print('英文に|を挿入すると，訳文のその部分を改行できます．\r\n')
