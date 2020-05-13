@@ -34,7 +34,7 @@ for name,value in options:
 if option_dict['help']:
     print('before.txtに英文を保存してこのスクリプトを実行すると，DeepLのサイトをスクレイピングして翻訳をクリップボードにコピーします．')
     print('英文に|を挿入すると，訳文のその部分を改行できます．\r\n')
-    print('-g, --generate')
+    print('-g, --generate: after.txtに翻訳結果を出力します．txtファイルの名前を指定すると，そのファイルに結果を出力します．')
     sys.exit()
 
 os.chdir('UseDeepL')
