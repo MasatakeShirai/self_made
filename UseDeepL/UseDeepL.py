@@ -38,8 +38,15 @@ if option_dict['help']:
     sys.exit()
 
 os.chdir('UseDeepL')
-    
-file = open('before.txt', 'r', encoding='utf-8')
+
+try:
+    file = open('before.txt', 'r', encoding='utf-8')
+except IOError:
+    file = open('before.txt', 'w', encoding='utf-8')
+    file.write("Hello")
+    file.close()
+    print('読み込み先ファイルが存在しませんでした．before.txtファイルに英文を書き込んでもう1度実行してください')
+    sys.exit()
 string = file.read()
 file.close()
 
