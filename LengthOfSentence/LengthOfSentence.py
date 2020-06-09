@@ -2,4 +2,6 @@ import os
 
 os.chdir("LengthOfSentence")
 
-print(os.getcwd())
+file = open('target.txt', 'r', encoding='utf-8')
+print(file.readline())
+file.close()
